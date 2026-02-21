@@ -6,6 +6,8 @@ load_dotenv()  # Load environment variables from .env file
 api_key = os.getenv("GROQ_API_KEY")
 
 
+
+
 from groq import Groq
 import sounddevice as sd
 from scipy.io.wavfile import write
