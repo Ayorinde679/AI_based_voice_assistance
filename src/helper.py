@@ -1,6 +1,9 @@
 import speech_recognition as sr
 from gtts import gTTS
 import os
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+api_key = os.getenv("GROQ_API_KEY")
 
 
 from groq import Groq
@@ -48,7 +51,7 @@ def recognize_speech_from_mic():
 ##for answering questions using groq api
  # Automatically loads from .env in the current directory
 
-api_key = os.environ["GROQ_API_KEY"]
+
 
 
 
