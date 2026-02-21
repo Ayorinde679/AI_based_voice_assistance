@@ -17,16 +17,22 @@ import numpy as np
 import os
 from dotenv import load_dotenv
 
-if os.path.exists(".env"):
-    load_dotenv()
-    print("Loaded environment variables from .env file.")
-else:
-    print(".env file not found. Using system environment variables.")
+import os
+import streamlit as st
+from dotenv import load_dotenv
 
+# Try loading local .env (for local development only)
+load_dotenv()
+
+# Try environment variable first (local)
 api_key = os.getenv("GROQ_API_KEY")
 
+# If not found, try Streamlit secrets (cloud)
 if not api_key:
-    raise RuntimeError("GROQ_API_KEY is not set.")
+    api_key = st.secrets.get("GROQ_API_KEY")
+
+if not api_key:
+    raise RuntimeError("GROQ_API_KEY is not set in environment variables or Streamlit secrets.")
 
 
 
