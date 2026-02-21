@@ -2,9 +2,9 @@ import speech_recognition as sr
 from gtts import gTTS
 import os
 from dotenv import load_dotenv
-load_dotenv()  # Load environment variables from .env file
-api_key = os.getenv("GROQ_API_KEY")
-print(f"Loaded GROQ API Key: {api_key[:4]}...")  # Print the first few characters to confirm it's loaded    
+
+
+ 
 
 
 
@@ -13,6 +13,21 @@ from groq import Groq
 import sounddevice as sd
 from scipy.io.wavfile import write
 import numpy as np
+
+import os
+from dotenv import load_dotenv
+
+if os.path.exists(".env"):
+    load_dotenv()
+    print("Loaded environment variables from .env file.")
+else:
+    print(".env file not found. Using system environment variables.")
+
+api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    raise RuntimeError("GROQ_API_KEY is not set.")
+
 
 
 
