@@ -1,0 +1,8 @@
+streamlit
+SpeechRecognition
+gTTS
+groq
+sounddevice
+numpy
+scipy
+setuptools
