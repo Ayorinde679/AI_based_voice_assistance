@@ -10,8 +10,8 @@ from dotenv import load_dotenv
 
 
 from groq import Groq
-import sounddevice as sd
-from scipy.io.wavfile import write
+
+
 import numpy as np
 
 import os
