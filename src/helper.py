@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env file
 api_key = os.getenv("GROQ_API_KEY")
+print(f"Loaded GROQ API Key: {api_key[:4]}...")  # Print the first few characters to confirm it's loaded    
 
 
 
@@ -73,7 +74,7 @@ def answer_question(text, prompt=None):
     messages.append({"role": "user", "content": text})
 
     completion = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="llama-3.1-8b-instant",
         messages=messages
     )
     result = completion.choices[0].message.content
@@ -95,6 +96,7 @@ def text_to_speech(result):
     tts=gTTS(text=result, lang="en")
     tts.save(file_path)
     
+
 
 
 

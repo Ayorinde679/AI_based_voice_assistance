@@ -58,3 +58,8 @@ if audio := st.audio_input("Click to record your question"):
             
         else:
             st.warning("⚠️ No speech was captured. Please check your recording and try again.")
+
+
+
+
+
